@@ -38,7 +38,8 @@ void blinkUpdate() // called every 1/250s to blink with duty cycle 1/blinkLimit
 
 void oncePerSecond() // repeatedly start bright and gradually lower duty cycle, one step/sec
 {
-  blinkLimit ++;  // reduce duty cycle
+  blinkLimit ++;// reduce duty cycle
+  printf("%d ", blinkLimit);
   if (blinkLimit >= 8)  // but don't let duty cycle go below 1/7.
     blinkLimit = 0;
 }
