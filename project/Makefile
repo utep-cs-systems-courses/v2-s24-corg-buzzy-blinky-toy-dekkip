@@ -22,7 +22,7 @@ load: led.elf button.elf buzzer.elf
 	msp430loader.sh led.elf $^
 
 clean:
-	rm -rf * .o * .elf
+	rm -f * .o * .elf
 
 main.o: led.h
-wdInterruptHandler.o led.h
+wdInterruptHandler.o: led.h

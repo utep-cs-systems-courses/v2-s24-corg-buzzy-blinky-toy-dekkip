@@ -35,7 +35,7 @@ int main(void) {
 void buzzer_init(){
 
   timerAUpmode();
-  P2SSEL2 &= ~(BIT6 | BIT7);
+  P2SEL2 &= ~(BIT6 | BIT7);
   P2SEL &= ~BIT7;
   P2SEL |= BIT6;
   P2DIR = BIT6;
@@ -141,7 +141,7 @@ void _interrupt_vec(WDT_VECTOR) WDT()
   case 2:
     buzzer_set_period(300);
     if (secondCount >= 50){
-      if (currLed = 0;
+      if (currLed){
 	  P1OUT ^= (LED_GREEN | LED_RED);
 	  currLed = 0;
       }
