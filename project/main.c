@@ -117,19 +117,55 @@ void _interrupt_vec(WDT_VECTOR) WDT()
 
   if (blinking) {
     return;
+  */
 
+  secondCount += 1;
 
+  switch (state) {
+  case 0:
+    buzzer_set_period(100);
+    if (secondCount >= 50){
+      P1OUT ^= (LED_GREEN | LED_RED);
+      secondCount = 0;
+    }
+    break;
 
+  case 1:
+    buzzer_set_period(200);
+    if (secondCount >= 100){
+      P1OUT ^= (LED_GREEN | LED_RED);
+      secondCount = 0;
+    }
+    break;
+
+  case 2:
+    buzzer_set_period(300);
+    if (secondCount >= 50){
+      if (currLed = 0;
+	  P1OUT ^= (LED_GREEN | LED_RED);
+	  currLed = 0;
+      }
+      else {
+	P1OUT = (P1OUT & ~LED_GREEN) | LED_RED;
+	currLed = 1;
+      }
+    }
+    break;
+  }
+
+  case 3:
+    buzzer_set_period(400):
+    if (secondCount >= 25){
+      if (redCount <= 10){
+	P1OUT ^= LED_GREEN;
+	redCount += 1;
+      }
+      else {
+	P1OUT ^= LED_RED;
+	redCount = 0;
+      }
+      secondCount = 0;
+    }
+    break;
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-

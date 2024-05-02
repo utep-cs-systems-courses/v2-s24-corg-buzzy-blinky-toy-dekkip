@@ -12,8 +12,8 @@ void main(void)
 {  
   configureClocks();
 
-  P1DIR |= LEDS;
-  P1OUT &= ~LEDS;		/* leds initially off */
+  P2DIR |= LEDS;
+  P2OUT &= ~LEDS;		/* leds initially off */
   
   P2REN |= SWITCHES;		/* enables resistors for switches */
   P2IE |= SWITCHES;		/* enable interrupts from switches */
@@ -45,7 +45,7 @@ switch_interrupt_handler()
 
 /* Switch on P1 (S2) */
 void
-__interrupt_vec(PORT1_VECTOR) Port_1(){
+__interrupt_vec(PORT1_VECTOR) Port_2(){
   if (P2IFG & SWITCHES) {	      /* did a button cause this interrupt? */
     P2IFG &= ~SWITCHES;		      /* clear pending sw interrupts */
     switch_interrupt_handler();	/* single handler for all switches */
